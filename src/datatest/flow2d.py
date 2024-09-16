@@ -73,13 +73,13 @@ def getargs():
     parser.add_argument(
         "--modeltype",
         type=str,
-        default="RAFT",
+        default="MFT",
         help="CSRT, MFT or RAFT",
     )
     parser.add_argument(
         "--ontestingset",
         type=int,
-        default="1",
+        default="0",
         help="whether on the testing set. Testing set provides no access to end segs.",
     )
     parser.add_argument(

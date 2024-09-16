@@ -32,9 +32,11 @@ class RAFTTracker:
 
     from ipdb import iex
     @iex
-    def trackpoints2D(self, pointlist, impair):
+    def trackpoints2D(self, pointlist, impair,reset_query=False):
         """ Takes in RGB image"""
-
+        if reset_query:
+            self.initialized = False
+            reset_query = False
         if self.use_torchscript:
             startim = self.resize_and_convert_to_np(impair[0]).transpose(2, 0, 1)/255.
             startim = impair[0].permute(0, 3, 1, 2) / 255.0
@@ -63,6 +65,6 @@ class RAFTTracker:
                             )
             estimated_endpoints = outputs[0] * self.scale
             estimated_endpoints = estimated_endpoints.squeeze(0)
-        return estimated_endpoints
+        return estimated_endpoints, reset_query
 
 
