@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Python with varying seeds",
+            "type": "shell",
+            "command": "for i in 8 9 10 \n do python C:/Users/User/Desktop/Stir/STIRMetrics-main/src/datatest/flow2d.py --num_data 10 --showvis 1 --seed ${i}\n done",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
